@@ -214,17 +214,17 @@ static void BleApp_GattServerCallback
 ## 4. Results<a name="step4"></a>
 When powering the KW45/K32W1 it starts the advertising role, so you can connect your smartphone using the IoT Toolbox app: 
 
-![result1](images/iot_1.PNG)
-![result1](images/iot_2.PNG)
+![result1](images/iot_1.png)
+![result1](images/iot_2.png)
 
 Once you connect your phone whit the KW45/K32W1 you will see on the terminal window this message:
 
-![result1](images/tera_1.PNG)
+![result1](images/tera_1.png)
 
 You can send message from the phone to the terminal: 
 
-![result1](images/iot_3.PNG)
-![result1](images/tera_12.PNG)
+![result1](images/iot_3.png)
+![result1](images/tera_12.png)
 
 you can change between screen using "commands":
 
