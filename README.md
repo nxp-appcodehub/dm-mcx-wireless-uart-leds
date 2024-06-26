@@ -1,20 +1,8 @@
 # NXP Application Code Hub
 [<img src="https://mcuxpresso.nxp.com/static/icon/nxp-logo-color.svg" width="100"/>](https://www.nxp.com)
 
-## [OOBE-MCXW71] Wireless UART + LEDs
-*The title should clearly indicate what the example code does. If the example is for an application note, then the document reference (e.g. AN12345) should be appended at the beginning.*
-
+## [OOBE-MCXW71] Controlling LEDS using BLE Wireless UART
 This demo allows the user to interact with the device through a serial terminal and also it can be possible to change the LCD screen via command sent by the IoT Toolbox using a Smartphone.
-
-*Description should provide a clear explanation of what the code is for, and provide links to any related documentation. If documentation is included in the Github repo then its location should be mentioned here, along with the name of documentation file(s). If the code is a snippet/general software, then a sufficient description must be provided for a developer to fully understand the example, either in this readme or in another document in the repo.*
-
-*If the code is an App SW pack then a link to the software summary page (SSP) on nxp.com must be provided.*
-
-*If the code is a demo, then a link to any related videos on nxp.com.Youtube, and/or other related pages must be provided.*
-
-*For training content you must reference the class training number (e.g. AMP-ENT-T4545), if available. You should also refer the reader to the training workbook and other materials from the class here.*
-
-*Ask yourself - if you were finding this code for the first time, is there enough information to make it useful? Think **QUALITY**.*
 
 
 #### Boards: FRDM-MCXW71, FRDM-MCXW7X
@@ -32,27 +20,223 @@ This demo allows the user to interact with the device through a serial terminal 
 7. [Release Notes](#step7)
 
 ## 1. Software<a name="step1"></a>
-*In this section you should provide details of tools and software used (name and version.) Tool chain will already be a tag, but version information is needed. Also include any software that comes from outside of the SDK. Tell the reader where to find the software; for MCUXpresso tools you can reference https://nxp.com/mcuxpresso.*
+This code has been implemented using MCUXpresso IDE version 11.9.0 and SDK verison 2.16.000 was used.
 
 ## 2. Hardware<a name="step2"></a>
-*In this section you should list hardware required to run the code, per the project file(s) that are included, with any relevant information about portability to other platforms.*
+Purchase supported board:
 
+- [FRDM-MCXW71](https://www.nxp.com/part/FRDM-MCXW71#/)
+
+ 
 ## 3. Setup<a name="step3"></a>
-*For app notes and ap sw packs you can refer the reader to the documentation from the introduction here. For demos and code snippets/general code you should provide a description of how to build and run the code. Steps 1, 2, etc. can be added/deleted as appropriate.*
 
-*For training content you would usually refer the reader to the training workbook here.*
 
 ### 3.1 Step 1
-```
-code snippet to copy/paste to project
-```
+Import the project *"w_uart"* into MCUXpresso IDE by following the following sections of the "MCUXpresso IDE - User Guide" found in the documentation section of the [MCUXpresso IDE page](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE)
+
+#### note: 
+ in order to see the Wireless UART on the IoT tool box change de GAP rol in the app: 
 
 ### 3.2 Step 2
+Once you have imported the Wireless UART example in your workspace, the next step is to add the right configurations in order to enable the LEDs commands, The following sections explain the main aspects that you should focus on:
+
+- wireless_uart.c file
+
+in this file is needed to add the declarations, variables and includes in order to configurate the LEDS commands:
+
+#### Declarations and variables:
+
+```C
+uint8_t command_uart;
+uint8_t command_lenght;
+```
+
+Neccesary functions:
+
+Also is neccesary to declarate and create the function to configurate the LEDS into the project:
+
+```C
+void commandLed(void)
+{
+	if (command_uart == '1' && command_lenght <= 2)
+	{
+	     GPIO_PortSet(GPIOA, 1U << 20U);
+	     GPIO_PortSet(GPIOA, 1U << 19U);
+	     GPIO_PortSet(GPIOA, 1U << 21U);
+
+
+	    gpio_pin_config_t rgbled_config = {
+	        kGPIO_DigitalOutput,
+	        0,
+	    };
+
+	    PORT_SetPinMux(PORTA, 21U, kPORT_MuxAsGpio);
+	     GPIO_PinInit(GPIOA, 21U, &rgbled_config);
+	     GPIO_PortClear(GPIOA, 1U << 21U);
+	     GPIO_PortSet(GPIOA, 1U << 20U);
+	     GPIO_PortSet(GPIOA, 1U << 19U);
+	}
+	else if (command_uart == '2' && command_lenght <= 2)
+	{
+	    gpio_pin_config_t rgbled_config = {
+	        kGPIO_DigitalOutput,
+	        0,
+	    };
+
+	    PORT_SetPinMux(PORTA, 20U, kPORT_MuxAsGpio);
+	     GPIO_PinInit(GPIOA, 20U, &rgbled_config);
+	     GPIO_PortClear(GPIOA, 1U << 20U);
+	     GPIO_PortSet(GPIOA, 1U << 19U);
+	     GPIO_PortSet(GPIOA, 1U << 21U);
+
+	}
+	else if (command_uart == '3' && command_lenght <= 2)
+	{
+	    gpio_pin_config_t rgbled_config = {
+	        kGPIO_DigitalOutput,
+	        0,
+	    };
+
+	    PORT_SetPinMux(PORTA, 19U, kPORT_MuxAsGpio);
+	     GPIO_PinInit(GPIOA, 19U, &rgbled_config);
+	     GPIO_PortClear(GPIOA, 1U << 19U);
+	     GPIO_PortSet(GPIOA, 1U << 20U);
+	     GPIO_PortSet(GPIOA, 1U << 21U);
+	}
+	else if (command_uart == '0' && command_lenght <= 2)
+	{
+
+	    gpio_pin_config_t rgbled_config = {
+	        kGPIO_DigitalOutput,
+	        0,
+	    };
+
+	    PORT_SetPinMux(PORTA, 21U, kPORT_MuxAsGpio);
+	    GPIO_PinInit(GPIOA, 19U, &rgbled_config);
+	    GPIO_PinInit(GPIOA, 20U, &rgbled_config);
+	    GPIO_PinInit(GPIOA, 21U, &rgbled_config);
+
+
+		GPIO_PortClear(GPIOA, 1U << 20U);
+		GPIO_PortClear(GPIOA, 1U << 21U);
+		GPIO_PortClear(GPIOA, 1U << 19U);
+
+	}
+	else
+	{
+	    gpio_pin_config_t rgbled_config = {
+	        kGPIO_DigitalOutput,
+	        0,
+	    };
+
+	    PORT_SetPinMux(PORTA, 21U, kPORT_MuxAsGpio);
+	    GPIO_PinInit(GPIOA, 19U, &rgbled_config);
+	    GPIO_PinInit(GPIOA, 20U, &rgbled_config);
+	    GPIO_PinInit(GPIOA, 21U, &rgbled_config);
+
+	    GPIO_PortSet(GPIOA, 1U << 19U);
+	    GPIO_PortSet(GPIOA, 1U << 20U);
+	    GPIO_PortSet(GPIOA, 1U << 21U);
+	}
+
+}
+```
+
+
+The propose to use the LEDs into the Wireless UART examples is that the user can interact with the board in a diferefent way. So it is neccesary to call the function in the BLE functionality:
+
+
+you need to call the Command LED function in the BLE Reveive UART
+```C
+static void BleApp_ReceivedUartStream
+(
+    deviceId_t peerDeviceId,
+    uint8_t *pStream,
+    uint16_t streamLength
+)
+```
+just after this line:
+
+```C
+#if (defined(SERIAL_MANAGER_NON_BLOCKING_MODE) && (SERIAL_MANAGER_NON_BLOCKING_MODE > 0U))
+        serial_manager_status_t status = SerialManager_InstallTxCallback((serial_write_handle_t)s_writeHandle, Uart_TxCallBack, pBuffer);
+        (void)status;
+        assert(kStatus_SerialManager_Success == status);
+
+        (void)SerialManager_WriteNonBlocking((serial_write_handle_t)s_writeHandle, pBuffer, streamLength);
+#endif /*SERIAL_MANAGER_NON_BLOCKING_MODE > 0U*/
+    }
+
+    CommandLed();
+
+    /* update the previous device ID */
+    previousDeviceId = peerDeviceId;
+}
+```
+
+the commands sent by the user using the Smatphone need to be capture it in the fuction: 
+
+```C
+static void BleApp_GattServerCallback
+(
+    deviceId_t deviceId,
+    gattServerEvent_t *pServerEvent
+)
+{
+    uint16_t tempMtu = 0;
+
+    switch (pServerEvent->eventType)
+    {
+        case gEvtAttributeWrittenWithoutResponse_c:
+        {
+            if (pServerEvent->eventData.attributeWrittenEvent.handle == (uint16_t)value_uart_stream)
+            {
+            	command_uart = *pServerEvent->eventData.attributeWrittenEvent.aValue;
+            	command_lenght = pServerEvent->eventData.attributeWrittenEvent.cValueLength;
+
+                BleApp_ReceivedUartStream(deviceId, pServerEvent->eventData.attributeWrittenEvent.aValue,
+                                          pServerEvent->eventData.attributeWrittenEvent.cValueLength);
+            }
+
+            break;
+        }
+        .
+        .
+        .
+    }
+    .
+    .
+    .
+}
+```
+
 
 ## 4. Results<a name="step4"></a>
-*For app notes and ap sw packs you can refer the reader to the documentation from the introduction here, or just say "Not applicable for this example". For demos and code snippets/general code you should normally provide a description of what should happen when you run the code.*
+When powering the KW45/K32W1 it starts the advertising role, so you can connect your smartphone using the IoT Toolbox app: 
 
-*For training content you would usually refer the reader to the training workbook here.*
+![result1](images/iot_1.PNG)
+![result1](images/iot_2.PNG)
+
+Once you connect your phone whit the KW45/K32W1 you will see on the terminal window this message:
+
+![result1](images/tera_1.PNG)
+
+You can send message from the phone to the terminal: 
+
+![result1](images/iot_3.PNG)
+![result1](images/tera_12.PNG)
+
+you can change between screen using "commands":
+
+RGB white (command '0')
+
+RGB red (command '1')
+
+RGB blue (command '2')
+
+RGB green (command '3')
+
+** any other command "RGB OFF"
 
 ## 5. FAQs<a name="step5"></a>
 *Include FAQs here if appropriate. If there are none, then state "No FAQs have been identified for this project".*
