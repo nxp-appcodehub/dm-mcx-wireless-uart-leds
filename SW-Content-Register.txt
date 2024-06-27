@@ -1,10 +1,10 @@
 Package:              dm-mcx-wireless-uart-leds
-Version: 1.0
+Version:              1.0
 Outgoing License:     LA_OPT_NXP_Software_License v56 April 2024 - Additional Distribution License granted, license in Section 2.3 applies
 License file:         License.txt
 Description:          allows the user to interact with the device through a serial terminal and also it can be possible to change the LCD screen 
-		      via command sent by the IoT Toolbox using a Smartphone.
+                      via command sent by the IoT Toolbox using a Smartphone.
 Release location:     https://github.com/nxp-appcodehub/dm-mcx-wireless-uart-leds
-Origin: 	      NXP (proprietary)
-	              NXP (BSD-3-Clause)    
-		      ARM (Apache-2.0) - https://github.com/ARM-software/CMSIS_5/releases/tag/5.8.0 
+Origin:               NXP (proprietary)
+                      NXP (BSD-3-Clause)    
+                      ARM (Apache-2.0) - https://github.com/ARM-software/CMSIS_5/releases/tag/5.8.0 
