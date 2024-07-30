@@ -220,10 +220,10 @@ static void BleApp_GattServerCallback
 When powering the KW45/K32W1 it starts the advertising role, so you can connect your smartphone using the IoT Toolbox app: 
 
 
-<img src="images/iot_1.PNG" width="300"/>
+<img src="images/iot_1.png" width="300"/>
 
 
-<img src="images/iot_2.PNG" width="300"/>
+<img src="images/iot_2.png" width="300"/>
 
 
 Once you connect your phone whit the KW45/K32W1 you will see on the terminal window this message:
@@ -232,7 +232,7 @@ Once you connect your phone whit the KW45/K32W1 you will see on the terminal win
 
 You can send message from the phone to the terminal: 
 
-<img src="images/iot_3.PNG" width="300"/>
+<img src="images/iot_3.png" width="300"/>
 
 ![result1](images/tera_12.png)
 
