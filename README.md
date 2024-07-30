@@ -22,7 +22,7 @@ This demo allows the user to interact with the device through a serial terminal 
 ## 1. Software<a name="step1"></a>
 This code has been implemented using MCUXpresso IDE version 11.9.0 and SDK verison 2.16.000 was used.
 
-#### Nota: 
+#### Note: 
 *remember in order to use any wireless example in the MCXW71 you need to upload the NBU image. this image comes into the SDK version that you will use, in this case:*
 
 - "SDK_2_16_FRDM-MCXW71-> middleware-> wireless-> ble_controller-> bin-> mcxw71_nbu_ble-..-.sb3"
@@ -39,7 +39,7 @@ Purchase supported board:
 ### 3.1 Step 1
 Import the project *"w_uart"* into MCUXpresso IDE by following the following sections of the "MCUXpresso IDE - User Guide" found in the documentation section of the [MCUXpresso IDE page](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE)
 
-#### note: 
+#### Note: 
  in order to see the Wireless UART on the IoT tool box change de GAP rol in the app: 
 
 ### 3.2 Step 2
