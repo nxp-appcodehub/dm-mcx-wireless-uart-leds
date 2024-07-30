@@ -3439,6 +3439,8 @@ typedef struct {
    -- BRIC Register Masks
    ---------------------------------------------------------------------------- */
 
+
+
 /*!
  * @addtogroup BRIC_Register_Masks BRIC Register Masks
  * @{
