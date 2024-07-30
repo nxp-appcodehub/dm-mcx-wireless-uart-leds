@@ -22,6 +22,11 @@ This demo allows the user to interact with the device through a serial terminal 
 ## 1. Software<a name="step1"></a>
 This code has been implemented using MCUXpresso IDE version 11.9.0 and SDK verison 2.16.000 was used.
 
+#### Nota: 
+*remember in order to use any wireless example in the MCXW71 you need to upload the NBU image. this image comes into the SDK version that you will use, in this case:*
+
+- "SDK_2_16_FRDM-MCXW71-> middleware-> wireless-> ble_controller-> bin-> mcxw71_nbu_ble-..-.sb3"
+
 ## 2. Hardware<a name="step2"></a>
 Purchase supported board:
 
@@ -214,8 +219,12 @@ static void BleApp_GattServerCallback
 ## 4. Results<a name="step4"></a>
 When powering the KW45/K32W1 it starts the advertising role, so you can connect your smartphone using the IoT Toolbox app: 
 
-![result1](images/iot_1.png)
-![result1](images/iot_2.png)
+
+<img src="images/iot_1.png" width="300"/>
+
+
+<img src="images/iot_2.png" width="300"/>
+
 
 Once you connect your phone whit the KW45/K32W1 you will see on the terminal window this message:
 
@@ -223,7 +232,8 @@ Once you connect your phone whit the KW45/K32W1 you will see on the terminal win
 
 You can send message from the phone to the terminal: 
 
-![result1](images/iot_3.png)
+<img src="images/iot_3.png" width="300"/>
+
 ![result1](images/tera_12.png)
 
 you can change between screen using "commands":
