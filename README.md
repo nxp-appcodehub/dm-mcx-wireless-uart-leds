@@ -1,7 +1,7 @@
 # NXP Application Code Hub
 [<img src="https://mcuxpresso.nxp.com/static/icon/nxp-logo-color.svg" width="100"/>](https://www.nxp.com)
 
-## [OOBE-MCXW71] Controlling LEDS over BLE Wireless UART on FRDM-MCXW71 
+## Controlling LEDS over BLE Wireless UART on FRDM-MCXW71 
 This demo allows the user to interact with the device through a serial terminal and also it can be possible to change the LCD screen via command sent by the IoT Toolbox using a Smartphone.
 
 
@@ -40,7 +40,9 @@ Purchase supported board:
 Import the project *"w_uart"* into MCUXpresso IDE by following the following sections of the "MCUXpresso IDE - User Guide" found in the documentation section of the [MCUXpresso IDE page](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE)
 
 #### Note: 
- in order to see the Wireless UART on the IoT tool box change de GAP rol in the app: 
+ in order to see the Wireless UART on the IoT tool box change de GAP rol in the app:  press SW4 and then SW2
+
+ <img src="images/wu1.png" width="700"/>
 
 ### 3.2 Step 2
 Once you have imported the Wireless UART example in your workspace, the next step is to add the right configurations in order to enable the LEDs commands, The following sections explain the main aspects that you should focus on:
@@ -216,8 +218,8 @@ static void BleApp_GattServerCallback
 ```
 
 
-## 4. Results<a name="step4"></a>
-When powering the KW45/K32W1 it starts the advertising role, so you can connect your smartphone using the IoT Toolbox app: 
+## 4. Running the Demo<a name="step4"></a>
+When powering the MCXW71 it starts the advertising role, so you can connect your smartphone using the IoT Toolbox app: 
 
 
 <img src="images/iot_1.png" width="300"/>
