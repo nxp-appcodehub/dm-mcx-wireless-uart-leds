@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 *.o
 *.bak
 *.launch
@@ -45,7 +45,3 @@ settings/
 *.ewd
 *.dep
 
-/Release/
-=======
->>>>>>> 2e96abfd01aac36e65b4b3ae0d327a5a13cec877
-/Debug/
