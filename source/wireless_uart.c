@@ -1435,41 +1435,55 @@ static void BleApp_ReceivedUartStream
     static deviceId_t previousDeviceId = gInvalidDeviceId_c;
 
     char additionalInfoBuff[10] = { '\r', '\n', '[', '0', '0', '-', 'C', ']', ':', ' '};
+    char additionalInfoBuff_jump[2] = {'\r', ' '};
     uint8_t *pBuffer = NULL;
     uint32_t messageHeaderSize = 0;
+    uint32_t messageHeaderSize_jump = 0;
 
-    if (mAppUartNewLine || (previousDeviceId != peerDeviceId))
-    {
-        streamLength += (uint16_t)sizeof(additionalInfoBuff);
-    }
+ //    if (mAppUartNewLine || (previousDeviceId != peerDeviceId))
+//    {
+//        streamLength += (uint16_t)sizeof(additionalInfoBuff);
+//    }
+//
+//    /* Allocate buffer for asynchronous write */
+//    pBuffer = MEM_BufferAlloc(streamLength);
+//
+//    if (pBuffer != NULL)
+//    {
+//        /* if this is a message from a previous device, print device ID */
+//        if (mAppUartNewLine || (previousDeviceId != peerDeviceId))
+//        {
+//            messageHeaderSize = sizeof(additionalInfoBuff);
+//
+//            if (mAppUartNewLine)
+//            {
+//                mAppUartNewLine = FALSE;
+//            }
+//
+//            additionalInfoBuff[3] = '0' + (peerDeviceId / 10U);
+//            additionalInfoBuff[4] = '0' + (peerDeviceId % 10U);
+//
+//            if (gGapCentral_c != maPeerInformation[peerDeviceId].gapRole)
+//            {
+//                additionalInfoBuff[6] = 'P';
+//            }
+//
+//            FLib_MemCpy(pBuffer, additionalInfoBuff, sizeof(additionalInfoBuff));
+//        }
 
-    /* Allocate buffer for asynchronous write */
-    pBuffer = MEM_BufferAlloc(streamLength);
+        streamLength += (uint16_t)sizeof(additionalInfoBuff_jump);
+        pBuffer = MEM_BufferAlloc(streamLength);
 
-    if (pBuffer != NULL)
-    {
-        /* if this is a message from a previous device, print device ID */
-        if (mAppUartNewLine || (previousDeviceId != peerDeviceId))
+        if (pBuffer != NULL)
         {
-            messageHeaderSize = sizeof(additionalInfoBuff);
+        	messageHeaderSize_jump = sizeof(additionalInfoBuff_jump);
+         //	additionalInfoBuff_jump[0] = '\r';
+        	FLib_MemCpy(pBuffer, additionalInfoBuff_jump, sizeof(additionalInfoBuff_jump));
 
-            if (mAppUartNewLine)
-            {
-                mAppUartNewLine = FALSE;
-            }
-
-            additionalInfoBuff[3] = '0' + (peerDeviceId / 10U);
-            additionalInfoBuff[4] = '0' + (peerDeviceId % 10U);
-
-            if (gGapCentral_c != maPeerInformation[peerDeviceId].gapRole)
-            {
-                additionalInfoBuff[6] = 'P';
-            }
-
-            FLib_MemCpy(pBuffer, additionalInfoBuff, sizeof(additionalInfoBuff));
         }
 
-        FLib_MemCpy(&pBuffer[messageHeaderSize], pStream, (uint32_t)streamLength - messageHeaderSize);
+        FLib_MemCpy(&pBuffer[messageHeaderSize_jump], pStream, (uint32_t)streamLength - messageHeaderSize_jump);
+
 #if (defined(SERIAL_MANAGER_NON_BLOCKING_MODE) && (SERIAL_MANAGER_NON_BLOCKING_MODE > 0U))
         serial_manager_status_t status = SerialManager_InstallTxCallback((serial_write_handle_t)s_writeHandle, Uart_TxCallBack, pBuffer);
         (void)status;
@@ -1481,7 +1495,7 @@ static void BleApp_ReceivedUartStream
 #else
         (void)MEM_BufferFree(pBuffer);
 #endif /*SERIAL_MANAGER_NON_BLOCKING_MODE > 0U*/
-    }
+//    }
 
 
     //Command led
