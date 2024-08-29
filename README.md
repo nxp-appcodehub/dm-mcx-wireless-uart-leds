@@ -1,7 +1,7 @@
 # NXP Application Code Hub
 [<img src="https://mcuxpresso.nxp.com/static/icon/nxp-logo-color.svg" width="100"/>](https://www.nxp.com)
 
-## [OOBE-MCXW71] Controlling LEDS using BLE Wireless UART
+## Controlling LEDS over BLE Wireless UART on FRDM-MCXW71 
 This demo allows the user to interact with the device through a serial terminal and also it can be possible to change the LCD screen via command sent by the IoT Toolbox using a Smartphone.
 
 
@@ -22,6 +22,11 @@ This demo allows the user to interact with the device through a serial terminal 
 ## 1. Software<a name="step1"></a>
 This code has been implemented using MCUXpresso IDE version 11.9.0 and SDK verison 2.16.000 was used.
 
+#### Note: 
+*remember in order to use any wireless example in the MCXW71 you need to upload the NBU image. this image comes into the SDK version that you will use, in this case:*
+
+- "SDK_2_16_FRDM-MCXW71-> middleware-> wireless-> ble_controller-> bin-> mcxw71_nbu_ble-..-.sb3"
+
 ## 2. Hardware<a name="step2"></a>
 Purchase supported board:
 
@@ -34,8 +39,10 @@ Purchase supported board:
 ### 3.1 Step 1
 Import the project *"w_uart"* into MCUXpresso IDE by following the following sections of the "MCUXpresso IDE - User Guide" found in the documentation section of the [MCUXpresso IDE page](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE)
 
-#### note: 
- in order to see the Wireless UART on the IoT tool box change de GAP rol in the app: 
+#### Note: 
+ in order to see the Wireless UART on the IoT tool box change de GAP rol in the app:  press SW4 and then SW2
+
+ <img src="images/wu1.png" width="700"/>
 
 ### 3.2 Step 2
 Once you have imported the Wireless UART example in your workspace, the next step is to add the right configurations in order to enable the LEDs commands, The following sections explain the main aspects that you should focus on:
@@ -211,11 +218,15 @@ static void BleApp_GattServerCallback
 ```
 
 
-## 4. Results<a name="step4"></a>
-When powering the KW45/K32W1 it starts the advertising role, so you can connect your smartphone using the IoT Toolbox app: 
+## 4. Running the Demo<a name="step4"></a>
+When powering the MCXW71 it starts the advertising role, so you can connect your smartphone using the IoT Toolbox app: 
 
-![result1](images/iot_1.png)
-![result1](images/iot_2.png)
+
+<img src="images/iot_1.png" width="300"/>
+
+
+<img src="images/iot_2.png" width="300"/>
+
 
 Once you connect your phone whit the KW45/K32W1 you will see on the terminal window this message:
 
@@ -223,7 +234,8 @@ Once you connect your phone whit the KW45/K32W1 you will see on the terminal win
 
 You can send message from the phone to the terminal: 
 
-![result1](images/iot_3.png)
+<img src="images/iot_3.png" width="300"/>
+
 ![result1](images/tera_12.png)
 
 you can change between screen using "commands":
