@@ -10,3 +10,11 @@ Origin:               NXP (proprietary)
                       ARM (Apache-2.0) - https://github.com/ARM-software/CMSIS_5/releases/tag/5.8.0 
                       ARM Mbed Crypto library v3.4.0 (Apache-2.0) - https://github.com/Mbed-TLS/mbedtls
                       virtqueue, Bryan Venteicher (BSD-2-Clause) - https://cgit.freebsd.org/src/tree/sys/dev/virtio
+
+Name:                 lib_ble_host_cm33_gcc.a
+Version:              1.9.13.0
+Outgoing license:     LA_OPT_Online Code Hosting NXP_Software_License - v1.2 October 2023
+License file:         license.txt
+Description:          Bluetooth low energy controller firmware library
+Origin:               NXP (Proprietary)
+                      NXP (BSD-3-Clause)
