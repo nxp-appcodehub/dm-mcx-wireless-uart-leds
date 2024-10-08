@@ -2,7 +2,7 @@
 [<img src="https://mcuxpresso.nxp.com/static/icon/nxp-logo-color.svg" width="100"/>](https://www.nxp.com)
 
 ## Controlling LEDS over BLE Wireless UART on FRDM-MCXW71 
-This demo allows the user to interact with the device through a serial terminal and also it can be possible to change the LCD screen via command sent by the IoT Toolbox using a Smartphone.
+This demo allows the user to interact with the device through a serial terminal and also it can be possible to change the LEDs color via command sent by the IoT Toolbox using a Smartphone.
 
 
 #### Boards: FRDM-MCXW71, FRDM-MCXW7X
