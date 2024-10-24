@@ -225,12 +225,12 @@ static void BleApp_GattServerCallback
 When MCXW71 is powered, it starts the advertising role and you can connect your smartphone using the IoT Toolbox app: 
 
 
-<img src="images/iot_1.png" width="300"/>
+!<img src="images/iot_1.png" width="300"/>
 
-<img src="images/iot_2.png" width="300"/>
+!<img src="images/iot_2.png" width="300"/>
 
 
-Once you connect your phone with the KW45/K32W1, you see this message in the terminal window:
+Once you connect your phone with the MCXW71, you see this message in the terminal window:
 
 ![result1](images/tera_1.png)
 
@@ -253,10 +253,8 @@ RGB green (command '3')
 ** any other command "RGB OFF"
 
 ## 5. FAQs<a name="step5"></a>
-*Include FAQs here if appropriate. If there are none, then state "No FAQs have been identified for this project".*
 
 ## 6. Support<a name="step6"></a>
-*Provide URLs for help here.*
 
 #### Project Metadata
 <!----- Boards ----->
