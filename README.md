@@ -44,7 +44,7 @@ Import the project *"w_uart"* into the MCUXpresso IDE using the following sectio
   *To see the Wireless UART in the IoT tool box, change the GAP role in the app:  press SW4 and then SW2.*
 
 
-  ![result1](images/wu1.png)
+  ![TBD](images/wu1.png)
 
 
 ### 3.2 Step 2
@@ -225,10 +225,10 @@ static void BleApp_GattServerCallback
 When MCXW71 is powered, it starts the advertising role and you can connect your smartphone using the IoT Toolbox app: 
 
 
-![result1](images/iot_1.png)
+![result1](images/iot_1.png){width=30 height=30}
 
 
-![result1](images/iot_1.png)
+![result1](images/iot_1.png){width=30 height=30}
 
 
 Once you connect your phone with the KW45/K32W1, you see this message in the terminal window:
