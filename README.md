@@ -225,10 +225,10 @@ static void BleApp_GattServerCallback
 When MCXW71 is powered, it starts the advertising role and you can connect your smartphone using the IoT Toolbox app: 
 
 
-![result1](images/iot_1.png){width=30 height=30}
+![TBD](images/iot_1.png){width=150 height=150}
 
 
-![result1](images/iot_1.png){width=30 height=30}
+![TBD](images/iot_1.png){width=150 height=150}
 
 
 Once you connect your phone with the KW45/K32W1, you see this message in the terminal window:
@@ -237,9 +237,9 @@ Once you connect your phone with the KW45/K32W1, you see this message in the ter
 
 You can send a message from the phone to the terminal: 
 
-![result1](images/iot_3.png)
+![TBD](images/iot_3.png){width=150 height=150}
 
-![result1](images/tera_12.png)
+![TBD](images/tera_12.png)
 
 you can change between screen using "commands":
 
