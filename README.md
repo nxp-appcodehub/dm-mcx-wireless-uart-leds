@@ -2,7 +2,7 @@
 [<img src="https://mcuxpresso.nxp.com/static/icon/nxp-logo-color.svg" width="100"/>](https://www.nxp.com)
 
 ## Controlling LEDS over BLE Wireless UART on FRDM-MCXW71 
-This demo allows the user to interact with the device through a serial terminal and also it can be possible to change the LEDs color via command sent by the IoT Toolbox using a Smartphone.
+This demo allows the user to interact with the device through a serial terminal. It also gives a possibility to change the LEDs color via a command sent by the IoT Toolbox using a smartphone.
 
 
 #### Boards: FRDM-MCXW71, FRDM-MCXW7X
@@ -20,15 +20,16 @@ This demo allows the user to interact with the device through a serial terminal 
 7. [Release Notes](#step7)
 
 ## 1. Software<a name="step1"></a>
-This code has been implemented using MCUXpresso IDE version 11.9.0 and SDK verison 2.16.000 was used.
+This code is implemented using the MCUXpresso IDE version 11.9.0 and SDK version 2.16.000.
+
 
 #### Note: 
-*remember in order to use any wireless example in the MCXW71 you need to upload the NBU image. this image comes into the SDK version that you will use, in this case:*
+*To use any wireless example in the MCXW71, upload the NBU image. This image comes into the SDK version that you use in this case:*
 
 - "SDK_2_16_FRDM-MCXW71-> middleware-> wireless-> ble_controller-> bin-> mcxw71_nbu_ble-..-.sb3"
 
 ## 2. Hardware<a name="step2"></a>
-Purchase supported board:
+Purchase the supported board:
 
 - [FRDM-MCXW71](https://www.nxp.com/part/FRDM-MCXW71#/)
 
@@ -37,19 +38,21 @@ Purchase supported board:
 
 
 ### 3.1 Step 1
-Import the project *"w_uart"* into MCUXpresso IDE by following the following sections of the "MCUXpresso IDE - User Guide" found in the documentation section of the [MCUXpresso IDE page](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE)
+Import the project *"w_uart"* into the MCUXpresso IDE using the following sections of the "MCUXpresso IDE - User Guide" found in the documentation section of the [MCUXpresso IDE page](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE)
 
 #### Note: 
- in order to see the Wireless UART on the IoT tool box change de GAP rol in the app:  press SW4 and then SW2
+  *To see the Wireless UART in the IoT tool box, change the GAP role in the app:  press SW4 and then SW2.*
 
- <img src="images/wu1.png" width="700"/>
+
+  ![result1](images/wu1.png)
+
 
 ### 3.2 Step 2
-Once you have imported the Wireless UART example in your workspace, the next step is to add the right configurations in order to enable the LEDs commands, The following sections explain the main aspects that you should focus on:
+Once the Wireless UART example is imported into your workspace, add the right configurations to enable the LEDs commands. The following sections explain the main aspects that you should focus on:
 
 - wireless_uart.c file
 
-in this file is needed to add the declarations, variables and includes in order to configurate the LEDS commands:
+This file is needed to add the declarations, variables, and includes instructions to configure the LEDS commands:
 
 #### Declarations and variables:
 
@@ -58,9 +61,9 @@ uint8_t command_uart;
 uint8_t command_lenght;
 ```
 
-Neccesary functions:
+Necessary functions:
 
-Also is neccesary to declarate and create the function to configurate the LEDS into the project:
+It is necessary to declare and create the function to configure the LEDS into the project:
 
 ```C
 void commandLed(void)
@@ -150,10 +153,10 @@ void commandLed(void)
 ```
 
 
-The propose to use the LEDs into the Wireless UART examples is that the user can interact with the board in a diferefent way. So it is neccesary to call the function in the BLE functionality:
+The LEDs are used into the Wireless UART examples to let the user interact with the board in a diferefent way. So, it is necessary to call the function in the BLE functionality:
 
 
-you need to call the Command LED function in the BLE Reveive UART
+Call the Command LED function in the BLE Receive UART:
 ```C
 static void BleApp_ReceivedUartStream
 (
@@ -181,7 +184,7 @@ just after this line:
 }
 ```
 
-the commands sent by the user using the Smatphone need to be capture it in the fuction: 
+The commands sent by the user using the smartphone need to be captured in the function: 
 
 ```C
 static void BleApp_GattServerCallback
@@ -219,22 +222,22 @@ static void BleApp_GattServerCallback
 
 
 ## 4. Running the Demo<a name="step4"></a>
-When powering the MCXW71 it starts the advertising role, so you can connect your smartphone using the IoT Toolbox app: 
+When MCXW71 is powered, it starts the advertising role and you can connect your smartphone using the IoT Toolbox app: 
 
 
-<img src="images/iot_1.png" width="300"/>
+![result1](images/iot_1.png)
 
 
-<img src="images/iot_2.png" width="300"/>
+![result1](images/iot_1.png)
 
 
-Once you connect your phone whit the KW45/K32W1 you will see on the terminal window this message:
+Once you connect your phone with the KW45/K32W1, you see this message in the terminal window:
 
 ![result1](images/tera_1.png)
 
-You can send message from the phone to the terminal: 
+You can send a message from the phone to the terminal: 
 
-<img src="images/iot_3.png" width="300"/>
+![result1](images/iot_3.png)
 
 ![result1](images/tera_12.png)
 
@@ -271,7 +274,7 @@ RGB green (command '3')
 
 Questions regarding the content/correctness of this example can be entered as Issues within this GitHub repository.
 
->**Warning**: For more general technical questions regarding NXP Microcontrollers and the difference in expected funcionality, enter your questions on the [NXP Community Forum](https://community.nxp.com/)
+>**Warning**: For more general technical questions regarding NXP Microcontrollers and the difference in expected functionality, enter your questions on the [NXP Community Forum](https://community.nxp.com/)
 
 [![Follow us on Youtube](https://img.shields.io/badge/Youtube-Follow%20us%20on%20Youtube-red.svg)](https://www.youtube.com/@NXP_Semiconductors)
 [![Follow us on LinkedIn](https://img.shields.io/badge/LinkedIn-Follow%20us%20on%20LinkedIn-blue.svg)](https://www.linkedin.com/company/nxp-semiconductors)
@@ -282,4 +285,6 @@ Questions regarding the content/correctness of this example can be entered as Is
 | Version | Description / Update                           | Date                        |
 |:-------:|------------------------------------------------|----------------------------:|
 | 1.0     | Initial release on Application Code Hub        | June 12<sup>th</sup> 2024 |
+| 2.0     | Language and style corrections                 | October 24<sup>th</sup> 2024 |
+
 
