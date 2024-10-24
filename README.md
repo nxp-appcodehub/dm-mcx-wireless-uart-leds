@@ -236,7 +236,7 @@ Once you connect your phone with the MCXW71, you see this message in the termina
 
 You can send a message from the phone to the terminal: 
 
-<img src="images/iot_3.png" width="300"/>
+!<img src="images/iot_3.png" width="300"/>
 
 ![TBD](images/tera_12.png)
 
